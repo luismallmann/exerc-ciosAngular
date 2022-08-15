@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularProject';
+  title = 'Lista 01';
+  value: string = "";
+  texto: string = "";
+  textoTitulo: string = "";
+  
+  public mostrarDados(){
+    this.textoTitulo = this.texto;
+    this.value = this.texto;
+
+  }
+
+  public limparCampo(){    
+    this.value = "";
+  }  
 }
