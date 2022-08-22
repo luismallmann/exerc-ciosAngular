@@ -36,6 +36,19 @@ label,p{
 a,button{
     font-size:12px;
 }
-#inputPassword,#inputEmail{
+#inputPassword,#inputUsuario{
     width: 100%;
+}
+
+.spinner{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-content: center
+}
+.sucesso{
+    color: green;
+}
+.erro{
+    color: red;
 }

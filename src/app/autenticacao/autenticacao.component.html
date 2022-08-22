@@ -5,10 +5,10 @@
                 <h1>Login</h1>
             </div>
             <div class="linha espaco">
-                <label for="inputEmail">E-Mail Address</label>
+                <label for="inputUsuario">Usuário</label>
             </div>
             <div class="linha">
-                <input id="inputEmail" class="flex-item" type="text" (input)="email = inputEmail.value" #inputEmail>
+                <input id="inputUsuario" class="flex-item" type="text" (input)="usuario.userId = inputUsuario.value" #inputUsuario>
             </div>
             <div class="linha espaco">
                 <div class="linhaDupla">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="linha">
-                <input id="inputPassword" type="password" (input)="password = inputPassword.value" #inputPassword>
+                <input id="inputPassword" type="password" (input)="usuario.password = inputPassword.value" #inputPassword>
             </div>
             <div class="linha espaco">
                 <div class="linhaDupla">
@@ -31,11 +31,14 @@
                 </div>
             </div>
             <div class="linha">
-                <p style="text-align: center; color:{{cor}}">{{msn}}</p>
+                <div class="spinner" *ngIf="msn == null">
+                    <div class="spinner-border text-muted"></div>
+                </div>
+                <p style="text-align: center;" [ngClass]="cor" *ngIf="msn != null">{{msn}}</p>
             </div>
         </form>           
         <div class="linha" style="background-color: lightgrey ;" >
-                <p style="color: black; text-align: center;">Don't have an account? <a href="#"  style="color: black;">Create One</a></p>
+            <p style="color: black; text-align: center;">Don't have an account? <a href="#"  style="color: black;">Create One</a></p>
         </div>
     </div>
 </div>
