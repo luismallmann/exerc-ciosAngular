@@ -1,0 +1,12 @@
+<div>
+  <h1 class="geral">{{textoTitulo}}</h1>
+  <input class="geral" type="text"
+         [value] = "value"
+         (input) = "texto = inputTexto.value"
+         #inputTexto>
+  <section>
+    <button class="geral botao" (click)="mostrarDados()">Mostrar</button>
+    <button class="geral botao" (click)="limparCampo()">Limpar</button>
+  </section>
+  <app-autenticacao></app-autenticacao>
+</div>

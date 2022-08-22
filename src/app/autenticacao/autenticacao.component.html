@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="linha">
+        <form>
+            <div class="linha">
+                <h1>Login</h1>
+            </div>
+            <div class="linha espaco">
+                <label for="inputEmail">E-Mail Address</label>
+            </div>
+            <div class="linha">
+                <input id="inputEmail" class="flex-item" type="text" (input)="email = inputEmail.value" #inputEmail>
+            </div>
+            <div class="linha espaco">
+                <div class="linhaDupla">
+                    <label for="inputPassword">Password</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+            <div class="linha">
+                <input id="inputPassword" type="password" (input)="password = inputPassword.value" #inputPassword>
+            </div>
+            <div class="linha espaco">
+                <div class="linhaDupla">
+                    <div style="flex-grow: 2;">
+                        <input id="inputRemember" type="checkbox">
+                        <label for="inputRemember"  style="color: black;">Remember Me</label>
+                    </div>
+                    <div style=" flex-grow: 1;" style="text-align: right;">
+                        <button class="btn btn-primary" id="buttonLogin" type="button" (click)="login()">Login</button>     
+                    </div>
+                </div>
+            </div>
+            <div class="linha">
+                <p style="color:{{cor}}">{{msn}}</p>
+            </div>
+        </form>           
+        <div class="linha" style="background-color: lightgrey ;" >
+                <p style="color: black; text-align: center;">Don't have an account? <a href="#"  style="color: black;">Create One</a></p>
+        </div>
+    </div>
+</div>
+<div style="text-align: center; padding-top: 30px;">
+    <p>Copyright © 2017-2021 — Your Company</p>
+</div>
+

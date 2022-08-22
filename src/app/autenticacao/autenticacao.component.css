@@ -1,0 +1,41 @@
+*{
+    font-family: fantasy;
+}
+form{
+    padding: 30px;
+}
+.container {
+    display: flex;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.linha {
+    flex-grow: 1;
+    text-align: left;
+    width: 100%;
+}
+.linhaDupla{
+    display: flex;
+    justify-content: space-between;
+}
+.espaco{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h1{
+    font-weight: bold;
+    font-size: 20px;
+}
+label,p{
+    font-size:12px;
+    color:grey;
+}
+a,button{
+    font-size:12px;
+}
+#inputPassword,#inputEmail{
+    width: 100%;
+}
