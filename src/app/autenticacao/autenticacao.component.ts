@@ -1,6 +1,6 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Usuario} from 'src/app/interfaces/usuario';
+import {AutenticacaoService} from '../services/autenticacao.service'
 
 @Component({
   selector: 'app-autenticacao',
@@ -8,38 +8,56 @@ import { Usuario} from 'src/app/interfaces/usuario';
   styleUrls: ['./autenticacao.component.css']
 })
 export class AutenticacaoComponent {
-  user: string = "";
-  password: string = "";
-  msn?: string; 
+  msn: string = ""; 
+  cor = [""];
   qntErros = 0;
 
-  usuario: Usuario ={
-    userId:"",
+  usuarioCadastrado?: Usuario;
+  usuario: Usuario={
     password:"",
-    tipo:""
+    userId:"",
+    tipo:"",
   };
-  //inicializa a cor
-  cor = [""];
+
+  constructor (private autenticacaoService:AutenticacaoService){}
+
+  //Função responsável por buscar os usuários cadastrados
+  getUsuario(): void{
+    this.autenticacaoService.getUsuario().subscribe((users) => (this.usuarioCadastrado = users[0]))
+  }
 
   //Função responsável por validar o login
   login() {
-    this.user=this.usuario.userId;
-    this.password = this.usuario.password;
+    let userCadastrado: any;
+    let passwordCadastrado: any;
+    let userInformado: string;
+    let passwordInformado: string;
+   
+    //Captura os dados informados no input HTML
+    userInformado=this.usuario.userId;
+    passwordInformado = this.usuario.password;
+
+    //Aciona a função responsável por buscar os usuários cadastrados
+    this.getUsuario();
+
+    //Busca o login e senha previamente cadastrados
+    userCadastrado = this.usuarioCadastrado?.userId.toString();
+    passwordCadastrado=this.usuarioCadastrado?.password.toString();
 
     //Caso login e senha correta
-    if (this.user == "XPTO-21" && this.password == "Trocar@123") {
+    if (userInformado == userCadastrado && passwordInformado == passwordCadastrado) {
       this.msn = "Logado!";
       this.cor = ["sucesso"]
     }
     //Se não estiver correta
     else {
       //Analisa o usuario
-      if (this.user != "XPTO-21") {
+      if (userInformado != userCadastrado) {
         this.msn = "Acesso negado, usuário incorreto";
         this.cor = ["erro"]
       }
       //Analisa a senha
-      else if (this.password != "Trocar@123") {
+      else if (passwordInformado != passwordCadastrado) {
         this.msn = "Acesso negado, senha incorreta";
         this.qntErros++;
         this.cor = ["erro"]
