@@ -1,13 +1,30 @@
-<div>
-  <h1 class="geral">{{textoTitulo}}</h1>
-  <input class="geral" type="text"
-         [value] = "value"
-         (input) = "texto = inputTexto.value"
-         #inputTexto>
-  <section>
-    <button class="geral botao" (click)="mostrarDados()">Mostrar</button>
-    <button class="geral botao" (click)="limparCampo()">Limpar</button>
-  </section>
-  <br>
-  <app-autenticacao></app-autenticacao>
-</div>
+<head>
+</head>
+<body>
+  <div class="cabecalhoNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contato">Contato</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="btnLogin">
+          <button class="btn btn-danger my-2 my-sm-0" [disabled]="!existeToken()" type="button" (click)="logout();">Logout</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+<router-outlet></router-outlet>        
+</body>
+<footer>
+  <p>
+    email: luis.mallmann@gmail.com<br>
+    LinkedIn: https://www.linkedin.com/in/luismallmann<br>
+    GitHub: https://github.com/luismallmann><br>
+    WhastApp: +55 49 99950-8024
+  </p>
+</footer>

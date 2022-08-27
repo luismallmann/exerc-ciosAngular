@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule, Routes } from "@angular/router"; 
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,18 @@ export class AppComponent {
   public limparCampo(){    
     this.value = "";
   }  
+ 
+  public existeToken(){
+    if(localStorage['token']==='existe'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  public logout(){
+    localStorage.removeItem('token');
+
+ }
 }

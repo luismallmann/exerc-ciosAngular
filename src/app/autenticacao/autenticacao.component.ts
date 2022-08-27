@@ -46,8 +46,9 @@ export class AutenticacaoComponent {
 
     //Caso login e senha correta
     if (userInformado == userCadastrado && passwordInformado == passwordCadastrado) {
+      localStorage.setItem('token','existe');
       this.msn = "Logado!";
-      this.cor = ["sucesso"]
+      this.cor = ["sucesso"]  
     }
     //Se não estiver correta
     else {
