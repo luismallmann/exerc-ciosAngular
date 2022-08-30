@@ -1,29 +1,53 @@
-    <form>
+    <form [formGroup]="formulario">
     <div>
         <input id="inputNome" type="text" placeholder="Nome" formControlName="nome"> 
     </div>
-     <div *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">
-        Nome obrigatório
+    <div *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">
+        <p>Nome obrigatório</p>
     </div>
     <div>
-        <input id="inputTelefone" type="text" placeholder="Telefone" fo>    
+        <input id="inputTelefone" type="number" placeholder="Telefone" formControlName="telefone">    
     </div>
     <div>
-        <input id="inputEmail" type="email" placeholder="Email">
+        <input id="inputEmail" type="email" placeholder="Email" formControlName="email">
+    </div>
+    <div *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+        <p>Email obrigatório</p>
+    </div>
+    <div *ngIf="formulario.get('email')?.errors?.['email'] && formulario.get('email')?.touched">
+       <p>ex: cliente@gmail.com</p>
     </div>
     <div>
-        <input id="inputSenha" type="password" placeholder="Senha">
+        <input id="inputCEP" type="text" placeholder="CEP" formControlName="cep">
+    </div>
+    <div *ngIf="formulario.get('cep')?.errors?.['maxlength'] && formulario.get('cep')?.touched">
+        <p>Formato XXXXXXXX</p>
+    </div>
+    <div *ngIf="formulario.get('cep')?.errors?.['minlength'] && formulario.get('cep')?.touched">
+        <p>Formato XXXXXXXX</p>
     </div>
     <div>
-        <input id="inputAssunto" type="text" placeholder="Contato">
+        <input id="inputAssunto" type="text" placeholder="Assunto" formControlName="assunto">
+    </div>
+    <div *ngIf="formulario.get('assunto')?.errors?.['required'] && formulario.get('assunto')?.touched">
+        <p>Assunto obrigatório</p>
+    </div>
+    <div *ngIf="formulario.get('assunto')?.errors?.['maxlength'] && formulario.get('assunto')?.touched">
+        <p>Máximo 50 caracteres</p>
     </div>
     <div>
         <label for="inputMensagem">Mensagem</label>
     </div>
     <div>
-        <textarea id="inputMensagem" rows="3" cols="60"> Digite aqui sua mensagem...</textarea>
+        <textarea id="inputMensagem" rows="3" cols="60" formControlName="mensagem"> Digite aqui sua mensagem...</textarea>
+    </div>
+    <div *ngIf="formulario.get('mensagem')?.errors?.['required'] && formulario.get('mensagem')?.touched">
+       <p>Mensagem Obrigatória</p>
+    </div>
+    <div *ngIf="formulario.get('mensagem')?.errors?.['maxlength'] && formulario.get('mensagem')?.touched">
+        <p>Máximo 500 caracteres</p>
     </div>
     <div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Enviar"  [disabled]="!formulario.valid" (click)="cadastrarMensagem()">
     </div>
 </form>
