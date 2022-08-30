@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent,canActivate: [AuthGuard]},
   {path: 'login', component: AutenticacaoComponent},
   {path: 'contato', component: ContatoComponent, canActivate: [AuthGuard]},
-  {path: '**', component: Error404Component}
+  {path: '**',pathMatch: 'full', component: Error404Component}
 ]
 
 @NgModule({
