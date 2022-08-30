@@ -5,6 +5,9 @@
     <div *ngIf="formulario.get('nome')?.errors?.['required'] && formulario.get('nome')?.touched">
         <p>Nome obrigatório</p>
     </div>
+    <div *ngIf="formulario.get('nome')?.errors?.['pattern'] && formulario.get('nome')?.touched">
+        <p>Informe obrigatoriamente em Maiúsculo</p>
+    </div>
     <div>
         <input id="inputTelefone" type="number" placeholder="Telefone" formControlName="telefone">    
     </div>
