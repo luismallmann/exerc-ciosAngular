@@ -19,7 +19,10 @@ export class AutenticacaoComponent {
     tipo:"",
   };
 
-  constructor (private autenticacaoService:AutenticacaoService){}
+  
+
+  constructor (private autenticacaoService:AutenticacaoService,){}
+  
 
   //Função responsável por buscar os usuários cadastrados
   getUsuario(): void{
@@ -32,6 +35,7 @@ export class AutenticacaoComponent {
     let passwordCadastrado: any;
     let userInformado: string;
     let passwordInformado: string;
+    
    
     //Captura os dados informados no input HTML
     userInformado=this.usuario.userId;
@@ -47,6 +51,7 @@ export class AutenticacaoComponent {
     //Caso login e senha correta
     if (userInformado == userCadastrado && passwordInformado == passwordCadastrado) {
       localStorage.setItem('token','existe');
+
       this.msn = "Logado!";
       this.cor = ["sucesso"]  
     }

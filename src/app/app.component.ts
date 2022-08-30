@@ -6,7 +6,10 @@ import { Router, RouterModule, Routes } from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
+  constructor(private router: Router) { }
+  
   title = 'Lista 01';
   value: string = "";
   texto: string = "";
@@ -33,6 +36,6 @@ export class AppComponent {
 
   public logout(){
     localStorage.removeItem('token');
-
+    this.router.navigate(['/login']);
  }
 }
